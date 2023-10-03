@@ -1,0 +1,14 @@
+# ディレクトリ
+node_modules/
+public/
+
+# ログファイル
+*.log
+
+# 環境変数ファイル
+.env
+
+# OS生成ファイル
+.DS_Store
+.vscode
+Thumbs.db
