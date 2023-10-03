@@ -17,7 +17,6 @@ app.listen(3000, "localhost", () => {
   console.log("todoapp listening at http://localhost:3000");
 });
 
-//トップページのルーティング
 app.get("/todos", (req, res) => {
   const sql = "SELECT * FROM todos";
 
@@ -35,7 +34,6 @@ app.get("/todo/:id", (req, res) => {
   });
 });
 
-//jsonからtitle,detailを取得し、todosテーブルに追加する
 app.post("/todo", (req, res) => {
   const title = req.body.title;
   const detail = req.body.detail;
@@ -47,7 +45,6 @@ app.post("/todo", (req, res) => {
   });
 });
 
-//jsonからtitle,detail,is_completeを取得し、todosテーブルを更新する
 app.put("/todo/:id", (req, res) => {
   const id = req.params.id;
   const title = req.body.title;
@@ -61,7 +58,7 @@ app.put("/todo/:id", (req, res) => {
   });
 });
 
-//タスク完了処理でis_completeを1にする
+//タスク完了処理としてis_completeを1にする
 app.put("/todo/complete/:id", (req, res) => {
   const id = req.params.id;
   const is_complete = 1;
@@ -72,7 +69,7 @@ app.put("/todo/complete/:id", (req, res) => {
   });
 });
 
-//deleteメソッドを使って、idを取得し、todosテーブルから削除する
+//タスク削除処理deleteメソッドも一応作成
 app.delete("/todo/:id", (req, res) => {
   const id = req.params.id;
   const sql = "DELETE FROM todos WHERE id = ?";
