@@ -17,6 +17,7 @@ app.listen(3000, "localhost", () => {
   console.log("todoapp listening at http://localhost:3000");
 });
 
+//タスク一覧取得処理
 app.get("/todos", (req, res) => {
   const sql = "SELECT * FROM todos";
 
@@ -25,6 +26,7 @@ app.get("/todos", (req, res) => {
   });
 });
 
+//タスク詳細取得処理
 app.get("/todo/:id", (req, res) => {
   const id = req.params.id;
   const sql = "SELECT * FROM todos WHERE id = ?";
@@ -34,6 +36,7 @@ app.get("/todo/:id", (req, res) => {
   });
 });
 
+//タスク追加処理
 app.post("/todo", (req, res) => {
   const title = req.body.title;
   const detail = req.body.detail;
@@ -45,6 +48,7 @@ app.post("/todo", (req, res) => {
   });
 });
 
+//タスク更新処理
 app.put("/todo/:id", (req, res) => {
   const id = req.params.id;
   const title = req.body.title;
